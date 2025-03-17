@@ -30,7 +30,7 @@ const toggleMode = () => {
     if (body.classList.contains('bg-black')) {
         body.classList.remove('bg-black', 'text-white');
         body.classList.add('bg-white', 'text-red-700');
-        body.style.backgroundImage = "url('gambar/bg003.png')";
+        body.style.backgroundImage = "url('./gambar/bg003.png')";
         modeIconMobile.src = 'gambar/sharinggan (2).png';
         modeIconDesktop.src = 'gambar/sharinggan (1).png';
         // Change text to Korean
