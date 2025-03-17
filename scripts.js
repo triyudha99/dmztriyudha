@@ -31,8 +31,8 @@ const toggleMode = () => {
         body.classList.remove('bg-black', 'text-white');
         body.classList.add('bg-white', 'text-red-700');
         body.style.backgroundImage = "url('/gambar/bg003.png')";
-        modeIconMobile.src = '/gambar/sharinggan (2).png';
-        modeIconDesktop.src = '/gambar/sharinggan (1).png';
+        modeIconMobile.src = 'gambar/sharinggan (2).png';
+        modeIconDesktop.src = 'gambar/sharinggan (1).png';
         // Change text to Korean
         heading.innerHTML = '<span class="font-size: 38px font-bold text-white song-myung-regular">저는 무함마드입니다.</span><br><span class="text-2xl md:text-4xl">한 인간으로서...</span>';
         paragraph.innerHTML = '<span class="text-lg md:text-2xl song-myung-regular">어둠 속에서 나는 창조하고, 희생을 통해 나 자신을 연마합니다. 디자인은 눈에 보이는 것이 아니라, 그림자 속에서 느껴지는 것입니다.</span>';
@@ -41,9 +41,9 @@ const toggleMode = () => {
     } else {
         body.classList.remove('bg-white', 'text-red-700');
         body.classList.add('bg-black', 'text-white');
-        body.style.backgroundImage = "url('/gambar/bg02.jpg')";
-        modeIconMobile.src = '/gambar/sharinggan (1).png';
-        modeIconDesktop.src = '/gambar/sharinggan (2).png';
+        body.style.backgroundImage = "url('gambar/bg02.jpg')";
+        modeIconMobile.src = 'gambar/sharinggan (1).png';
+        modeIconDesktop.src = 'gambar/sharinggan (2).png';
         // Change text back to English
         heading.innerHTML = 'I\'M <span class="text-red-600">MUHAMMAD</span><br> A Human Being...';
         paragraph.textContent = 'In darkness, I create. Through sacrifice, I refine. Design is not what is seen, but what is felt in the shadows';
