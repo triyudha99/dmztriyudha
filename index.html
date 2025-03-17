@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Ensure this script is included if using CDN -->
+    <!-- If using local Tailwind CSS file, ensure the path is correct -->
+    <style>
+        .hidden {
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .hidden {
+                display: block;
+            }
+        }
+        body {
+            transition: background-color 0.5s, color 0.5s;
+            background-image: url('/gambar/bg02.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden; /* Prevent body from scrolling */
+        }
+        .content {
+            overflow-y: auto; /* Allow content to scroll */
+            height: 100vh; /* Full viewport height */
+        }
+        .menu-open {
+            transform: translateX(0);
+        }
+        .menu-closed {
+            transform: translateX(-100%);
+        }
+        .transition-transform {
+            transition: transform 0.3s ease-in-out;
+        }
+        .red-shadow {
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+        }
+        .hamburger {
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .hamburger .line {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .hamburger.open .line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open .line:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open .line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+     
+        .custom-text-size {
+            font-size: 28px; /* Sesuaikan ukuran teks sesuai kebutuhan */
+        }
+        .font-bodoni {
+            font-family: 'Bodoni Moda SC', serif;}
+            .gloria-hallelujah-regular {
+  font-family: "Gloria Hallelujah", cursive;
+}
+.song-myung-regular {
+  font-family: "Song Myung", serif;
+}
+
+
+    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white" id="body">
+    <div class="content">
+        <!-- Navbar -->
+        <nav class="flex flex-col md:flex-row justify-between items-center p-6 mt-4">
+            <div class="flex justify-between w-full md:w-auto">
+                <h1 class="text-2xl font-bold mb-4 md:mb-0 md:ml-10">DIMASTRIYUDA</h1>
+                <div class="flex items-center">
+                    <button id="mode-switch-mobile" class="md:hidden focus:outline-none p-0 mr-4">
+                        <img src="/gambar/sharinggan (1).png" alt="Dark Mode" id="mode-icon-mobile" class="w-8 h-8 rounded-full red-shadow">
+                    </button>
+                    <div id="menu-btn" class="hamburger md:hidden">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <ul id="menu" class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 hidden md:flex mx-auto">
+                <li><a href="#home" class="hover:text-yellow-400 text-white bg-red-500 bg-opacity-50 border border-red-700 p-2 rounded h-10 w-28 flex items-center justify-center">Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 text-white bg-red-500 bg-opacity-50 border border-red-700 p-2 rounded h-10 w-28 flex items-center justify-center ">About Me</a></li>
+                <li><a href="#skills" class="hover:text-yellow-400 text-white bg-red-500 bg-opacity-50 border border-red-700 p-2 rounded h-10 w-28 flex items-center justify-center">Skills</a></li>
+                <li><a href="#projects" class="hover:text-yellow-400 text-white bg-red-500 bg-opacity-50 border border-red-700 p-2 rounded h-10 w-28 flex items-center justify-center">Project</a></li>
+                <li><a href="#blog" class="hover:text-yellow-400 text-white bg-red-500 bg-opacity-50 border border-red-700 p-2 rounded h-10 w-28 flex items-center justify-center">Blog</a></li>
+                <li class="hidden md:block">
+                    <button id="mode-switch-desktop" class="focus:outline-none p-0 mr-4">
+                        <img src="/gambar/sharinggan (2).png" alt="Dark Mode" id="mode-icon-desktop" class="w-8 h-8 rounded-full red-shadow">
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed top-20 left-0 w-full bg-gray-400 bg-opacity-75 text-white p-6 menu-closed transition-transform">
+            <ul class="space-y-6 text-center">
+                <li><a href="#home" class="hover:text-yellow-400 hover:bg-gray-600 border-b border-gray-600 pb-2 block w-full py-3">Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 hover:bg-gray-600 border-b border-gray-600 pb-2 block w-full py-3">About Me</a></li>
+                <li><a href="#skills" class="hover:text-yellow-400 hover:bg-gray-600 border-b border-gray-600 pb-2 block w-full py-3">Skills</a></li>
+                <li><a href="#projects" class="hover:text-yellow-400 hover:bg-gray-600 border-b border-gray-600 pb-2 block w-full py-3">Project</a></li>
+                <li><a href="#blog" class="hover:text-yellow-400 hover:bg-gray-600 border-b border-gray-600 pb-2 block w-full py-3">Blog</a></li>
+            </ul>
+        </div>
+
+       <!-- Main Content -->
+<section id="home" class="min-h-screen flex items-center justify-center">
+    <div class="max-w-5xl mx-auto px-6 md:flex md:items-center md:justify-between gap-y-6 md:gap-0">
+        <!-- Left Section (Text) -->
+        <div class="md:w-1/2 space-y-4 md:-mt-32 md:mb-0 text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold">
+                I'M <span class="text-red-600">MUHAMMAD</span><br> A Human Being...
+            </h1>
+            <p class="text-gray-300 text-lg font-bodoni">
+                In darkness, I create. Through sacrifice, I refine. Design is not what is seen, but what is felt in the shadows
+            </p>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center md:justify-start">
+                <a href="mailto:muhammadsyahputra65@outlook.co.id" class="bg-red-600 text-black px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition text-center inline-block">
+                    Contact Me
+                </a>
+                <a href="mailto:muhammadsyahputra65@outlook.co.id" class="border-2 border-red-600 px-6 py-3 rounded-full font-semibold hover:bg-red-600 hover:text-black transition text-center inline-block">
+                    Hire Me
+                </a>
+            </div>
+            <div class="flex justify-center md:justify-start space-x-4 mt-6">
+                
+                <!-- Facebook Icon -->
+    <a href="https://github.com/triyudha99" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-red-600 transition">
+        <img <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="w-6 h-6">
+    </a>
+    
+    <!-- Instagram Icon -->
+    <a href="https://www.instagram.com/dmz_triyuda/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-red-600 transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-6 h-6">
+    </a>
+                <a href="https://lked.in/dmz" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-red-600 transition">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="w-6 h-6">
+                </a>
+                
+            </div>
+        </div>
+        
+        <!-- Right Section (Text) -->
+        <div class="md:w-1/2 mt-4 md:mt-0 text-center md:text-left md:ml-20">
+            <h2 class="font-bold text-red-600 custom-text-size">Those who forgive themselves, 
+                and are able to accept their true nature… They are the strong ones!</h2>
+        </div>
+    </div>
+</section>
+              
+<!-- section skill -->
+       <!-- section skill -->
+<section id="skills" class="w-full min-h-screen flex flex-col justify-center items-center py-10">
+    <!-- Title for Skills Section -->
+    <div class="w-full text-center mb-28 ">
+        <h2 class="text-3xl md:text-4xl font-bold text-white font-bodoni">Skills</h2>
+    </div>
+    <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="w-full max-w-sm mx-auto flex flex-col gap-4 p-6 shadow-lg border border-gray-300 rounded-lg bg-red-500/30 ">
+            <div class="w-full flex justify-center items-center">
+                <img src="/gambar/gambarskil (1).jpg" class="w-32 h-32 rounded-full outline outline-offset-2 outline-1 outline-red-600 shadow-lg -mt-16" src="https://via.placeholder.com/150" alt="Profile Image" />
+            </div>
+            <div class="text-center flex flex-col gap-4">
+                <h1 class="uppercase text-lg font-semibold dark:text-white">ChatGPT</h1>
+                <h2 class="text-xl font-serif capitalize font-semibold text-white">A creator of ideas and words, helping me think broader and faster</h2>
+            </div>
+        </div>
+        <div class="w-full max-w-sm mx-auto flex flex-col gap-4 p-6 shadow-lg border border-gray-300 rounded-lg bg-red-500/30">
+            <div class="w-full flex justify-center items-center">
+                <img src="/gambar/gambarskil (2).jpg" class="w-32 h-32 rounded-full outline outline-offset-2 outline-1 outline-red-600 shadow-lg -mt-16" src="https://via.placeholder.com/150" alt="Profile Image" />
+            </div>
+            <div class="text-center flex flex-col gap-4">
+                <h1 class="uppercase text-lg font-semibold dark:text-white">DeepSeek </h1>
+                <h2 class="text-xl font-serif capitalize font-semibold text-white">An AI-powered search engine that uncovers deep insights from data</h2>
+            </div>
+        </div>
+        <div class="w-full max-w-sm mx-auto flex flex-col gap-4 p-6 shadow-lg border border-gray-300 rounded-lg bg-red-500/30">
+            <div class="w-full flex justify-center items-center">
+                <img src="/gambar/gambarskil (3).jpg" class="w-32 h-32 rounded-full outline outline-offset-2 outline-1 outline-red-600 shadow-lg -mt-16" src="https://via.placeholder.com/150" alt="Profile Image" />
+            </div>
+            <div class="text-center flex flex-col gap-4">
+                <h1 class="uppercase text-lg font-semibold dark:text-white">Copilot</h1>
+                <h2 class="text-xl font-serif capitalize font-semibold text-white"> A smart programming companion, optimizing and simplifying code</h2>
+           
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Me Section -->
+<container id="about" class=" flex items-center justify-center min-h-screen p-6">
+    <div class="max-w-4xl p-8 rounded-lg shadow-md flex flex-col md:flex-row items-center gap-8">
+        <!-- Text Section -->
+        <div class="md:w-1/2 text-center md:text-left">
+            <h2 class="text-4xl font-bold text-white-600 font-bodoni">About Me</h2>
+            <p class="mt-4 text-white-600 gloria-hallelujah-regular">
+                Words are my compass, and stories are the stars that guide me. I live between the lines of poetry, in the whispers of forgotten languages, and in the quiet elegance of well-crafted prose.
+                As a designer and a lover of literature, I see the world as a manuscript waiting to be written every detail a sentence, every moment a verse. I chase beauty, not just in form, but in meaning, weaving art and language into something timeless.
+                If life is a novel, I am both its reader and its author, forever lost in the pages of wonder.
+            </p>
+        </div>
+        
+        <!-- Image Section -->
+        <div class="relative md:w-1/2 ml-0 flex justify-center md:justify-start">
+            <div class="absolute -top-2 left-8 w-64 h-64 bg-red-500 rounded-full hidden md:block"></div>
+            <img src="/gambar/prince.jpeg" alt="Woman with dog" class="relative w-64 h-64 object-cover rounded-full border-4 border-white shadow-md md:translate-x-20">
+        </div>
+    </div>
+</container>
+<!-- New Section -->
+<section id="projects" class="flex justify-center items-center min-h-screen ">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 w-full max-w-4xl">
+        <!-- Box 1: Project -->
+        <div class="flex flex-col items-center justify-center w-full h-64  bg-red-500/30 text-white text-center rounded-lg shadow-lg p-6 transform transition-transform duration-300 hover:scale-105  hover:bg-red-600/50">
+            <h2 class="text-3xl font-bold font-bodoni">Project</h2>
+            <p class="text-lg text-gray-400 mt-2">Coming Soon</p>
+        </div>
+        
+        <!-- Box 2: Blog -->
+        <div id="blog" class="flex flex-col items-center justify-center w-full h-64  bg-red-500/30 text-white text-center rounded-lg shadow-lg p-6 transform transition-transform duration-300 hover:scale-105  hover:bg-red-600/50">
+            <h2 class="text-3xl font-bold font-bodoni">Blog</h2>
+            <p class="text-lg text-gray-400 mt-2">Coming Soon</p>
+        </div>
+    </div>
+</section>
+    </div>
+    <!-- bagian bawah -->
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
